@@ -37,7 +37,7 @@ class MainFragment : Fragment()
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         // TODO: Use the ViewModel
 
-        binding.message.text = viewModel.stringList.toString()
+        binding.message.text = viewModel.stringList
 
         binding.button.setOnClickListener{
             if(binding.editTextName.text.isNotEmpty())
