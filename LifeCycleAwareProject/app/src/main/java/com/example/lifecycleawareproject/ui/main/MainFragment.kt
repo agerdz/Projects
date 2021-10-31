@@ -34,17 +34,18 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         // TODO: Use the ViewModel
-
-        //viewModel.setToEmptyList()
-
+        if (stringList.value.isNullOrEmpty()) {
+            viewModel.setToEmptyList()
+        }
         lifecycle.addObserver(DemoObserver())
 
         binding.output.text = stringList.value.toString()
 
         ///val resultObserver = Observer<String> { stringList ->
-        //val resultObserver = Observer<String> {
-          //      stringList -> binding.output.text = stringList.toString()
-        //}
+        val resultObserver = Observer<String> {
+                stringList -> binding.output.text = stringList
+        }
+        viewModel.getStringList().observe(viewLifecycleOwner, resultObserver)
         //binding.output.text = stringList.toString()
        // }
         }

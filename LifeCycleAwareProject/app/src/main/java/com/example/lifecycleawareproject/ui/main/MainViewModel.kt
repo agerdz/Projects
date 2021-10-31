@@ -9,9 +9,11 @@ import androidx.lifecycle.MutableLiveData
 
 class MainViewModel : ViewModel() {
 
-    val current = LocalDateTime.now()
-    val formatter = DateTimeFormatter.ofPattern("HH:mm:ss.SSS")
-    val formatted = current.format(formatter)
+    var current = LocalDateTime.now()
+    var formatter = DateTimeFormatter.ofPattern("HH:mm:ss.SSS")
+    var formatted = current.format(formatter)
+
+
 
     //var stringList : MutableLiveData<String> = MutableLiveData()
     //var stringList : MutableLiveData<String> = MutableLiveData()
@@ -21,6 +23,9 @@ class MainViewModel : ViewModel() {
         }
     fun setToEmptyList() {
         stringList.value = ""
+    }
+    fun getStringList() : MutableLiveData<String>{
+        return stringList
     }
 
 
