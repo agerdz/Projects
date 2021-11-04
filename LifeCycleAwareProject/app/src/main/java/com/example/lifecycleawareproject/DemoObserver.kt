@@ -38,6 +38,7 @@ class DemoObserver: LifecycleObserver {
         //addName(    "onResume")
         stringList.value = stringList.value.plus("onResume was fired on ").plus(formatted).plus("\n").plus("*********").plus("\n")
         //stringList.setValue(stringList.value.plus("onResume").plus(formatted).plus("\n"))
+        
 
     }
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
